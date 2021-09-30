@@ -37,7 +37,9 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality() {
-        Job job1 = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        Job job1 = new Job(001, "Product Tester", new Employer("ACME"));
+        Job job2 = new Job(015, "Product Tester", new Employer("ACME"));
+        assertFalse(job1.equals(job2));
     }
 
 

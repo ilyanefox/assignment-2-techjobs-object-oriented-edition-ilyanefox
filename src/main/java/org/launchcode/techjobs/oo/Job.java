@@ -32,6 +32,12 @@ public class Job {
         Job.coreCompetency = coreCompetency;
     }
 
+    public Job(int id, String name, Employer employer) {
+        this();
+        Job.name = name;
+        Job.employer = employer;
+    }
+
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
