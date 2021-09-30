@@ -7,11 +7,11 @@ public class Job {
     private int id;
     private static int nextId = 1;
 
-    private String name;
-    private Employer employer;
-    private Location location;
-    private PositionType positionType;
-    private CoreCompetency coreCompetency;
+    private static String name;
+    private static Employer employer;
+    private static Location location;
+    private static PositionType positionType;
+    private static CoreCompetency coreCompetency;
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -25,12 +25,13 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        Job.name = name;
+        Job.employer = employer;
+        Job.location = location;
+        Job.positionType = positionType;
+        Job.coreCompetency = coreCompetency;
     }
+
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
@@ -53,7 +54,7 @@ public class Job {
     //  and id.
 
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 

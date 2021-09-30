@@ -6,7 +6,7 @@ public class Location {
 
     private int id;
     private static int nextId = 1;
-    private String value;
+    private static String value;
 
     public Location() {
         id = nextId;
@@ -47,7 +47,7 @@ public class Location {
         return id;
     }
 
-    public String getValue() {
+    public static String getValue() {
         return value;
     }
 
