@@ -6,7 +6,7 @@ public class Employer {
 
     private int id;
     private static int nextId = 1;
-    private static String value;
+    private String value;
 
     public Employer() {
         id = nextId;
@@ -44,7 +44,7 @@ public class Employer {
         return id;
     }
 
-    public static String getValue() {
+    public String getValue() {
         return value;
     }
 

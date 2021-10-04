@@ -7,11 +7,11 @@ public class Job {
     private int id;
     private static int nextId = 1;
 
-    private static String name;
-    private static Employer employer;
-    private static Location location;
-    private static PositionType positionType;
-    private static CoreCompetency coreCompetency;
+    private String name;
+    private Employer employer;
+    private Location location;
+    private PositionType positionType;
+    private CoreCompetency coreCompetency;
 
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
@@ -25,22 +25,28 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        Job.name = name;
-        Job.employer = employer;
-        Job.location = location;
-        Job.positionType = positionType;
-        Job.coreCompetency = coreCompetency;
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
     }
 
     public Job(int id, String name, Employer employer) {
         this();
-        Job.name = name;
-        Job.employer = employer;
+        this.name = name;
+        this.employer = employer;
     }
 
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+
+    @Override
+    public String toString() {
+        return "\n" + "ID: " + getId() + "\n" + "Name: " + getName() + "\n" + "Employer: " + "\n" +
+                "Location: " + getLocation() + "\n" + "Position Type: " + getPositionType()+ "\n" + "Core Competency: " + getCoreCompetency()+ "\n";
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -60,7 +66,7 @@ public class Job {
     //  and id.
 
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
