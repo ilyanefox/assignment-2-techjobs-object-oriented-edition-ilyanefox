@@ -42,19 +42,32 @@ public class JobTest {
         assertFalse(job1.equals(job2));
     }
 
-    //When passed a Job object, it should return a string that contains a blank line before and after the job information.
-    //
-    //The string should contain a label for each field, followed by the data stored in that field. Each field should be on its own line.
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
         Job job = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         String jobString = job.toString();
-        String expected = "\nID: " + job.getId() + "\n" + "Name: " + job.getName() + "\n" + "Employer: " + "\n" +
-                "Location: " + job.getLocation() + "\n" + "Position Type: " + job.getPositionType()+ "\n" + "Core Competency: " + job.getCoreCompetency() + "\n";
-        assertEquals(jobString.charAt(0), "\n");
-        assertEquals(jobString.charAt(jobString.length() -1), "\n");
-
+        //assertEquals(expected.charAt(0), jobString.charAt(0));
+        assertTrue(jobString.startsWith("\n"));
+        //assertEquals(expected.charAt(expected.length() - 1), jobString.charAt(jobString.length() - 1));
+        assertTrue(jobString.endsWith("\n"));
     }
 
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        String expected = "\n" + "ID: " + job.getId() + "\n" + "Name: " + job.getName() + "\n" + "Employer: " + job.getEmployer() + "\n" +
+                "Location: " + job.getLocation() + "\n" + "Position Type: " + job.getPositionType() + "\n" + "Core Competency: " + job.getCoreCompetency() + "\n";
 
+        assertEquals(expected, job.toString());
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
+        job.getEmployer().setValue("");
+        String expected = "\n" + "ID: " + job.getId() + "\n" + "Name: " + job.getName() + "\n" + "Employer: " + "Data not available" + "\n" +
+                "Location: " + job.getLocation() + "\n" + "Position Type: " + job.getPositionType() + "\n" + "Core Competency: " + job.getCoreCompetency() + "\n";
+
+       assertEquals(expected, job.toString());
+    }
 }

@@ -44,9 +44,16 @@ public class Job {
 
     @Override
     public String toString() {
-        return "\n" + "ID: " + getId() + "\n" + "Name: " + getName() + "\n" + "Employer: " + "\n" +
-                "Location: " + getLocation() + "\n" + "Position Type: " + getPositionType()+ "\n" + "Core Competency: " + getCoreCompetency()+ "\n";
-    }
+        String string = "Data not available";
+
+        if (getEmployer().equals("")) {
+            System.out.print(string);
+        }
+
+            return "\n" + "ID: " + getId() + "\n" + "Name: " + getName() + "\n" + "Employer: " + getEmployer() + "\n" +
+                    "Location: " + getLocation() + "\n" + "Position Type: " + getPositionType() + "\n" + "Core Competency: " + getCoreCompetency() + "\n";
+        }
+
 
     @Override
     public boolean equals(Object o) {
