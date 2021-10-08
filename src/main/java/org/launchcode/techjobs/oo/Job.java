@@ -44,15 +44,34 @@ public class Job {
 
     @Override
     public String toString() {
-        String string = "Data not available";
 
-        if (getEmployer().equals("")) {
-            System.out.print(string);
+        if (Objects.equals(id, "")) {
+            String id = "Data not available";
         }
 
-            return "\n" + "ID: " + getId() + "\n" + "Name: " + getName() + "\n" + "Employer: " + getEmployer() + "\n" +
-                    "Location: " + getLocation() + "\n" + "Position Type: " + getPositionType() + "\n" + "Core Competency: " + getCoreCompetency() + "\n";
+        if (Objects.equals(name, "")) {
+            String name = "Data not available";
         }
+
+        if (Objects.equals(employer,"")) {
+            String employer = "Data not available";
+        }
+
+        if (location.equals("")) {
+            String location = "Data not available";
+        }
+
+        if (positionType.equals("")) {
+            String positionType = "Data not available";
+        }
+
+        if (coreCompetency.equals("")) {
+            String coreCompetency = "Data not available";
+        }
+
+        return "\nID: " + getId() + "\n" + "Name: " + getName() + "\n" + "Employer: " + getEmployer() + "\n" +
+                "Location: " + getLocation() + "\n" + "Position Type: " + getPositionType() + "\n" + "Core Competency: " + getCoreCompetency() + "\n";
+    }
 
 
     @Override
