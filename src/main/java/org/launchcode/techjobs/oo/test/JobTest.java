@@ -46,11 +46,13 @@ public class JobTest {
     public void testToStringStartsAndEndsWithNewLine() {
         Job job = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality Control"), new CoreCompetency("Persistence"));
         String jobString = job.toString();
-        //assertEquals(expected.charAt(0), jobString.charAt(0));
-        assertTrue(jobString.startsWith("\n"));
-        //assertEquals(expected.charAt(expected.length() - 1), jobString.charAt(jobString.length() - 1));
-        assertTrue(jobString.endsWith("\n"));
-        assertEquals(jobString, jobString);
+        String expected = "\nID: " + job.getId() + "\n" + "Name: " + job.getName() + "\n" + "Employer: " + job.getEmployer() + "\n" +
+                "Location: " + job.getLocation() + "\n" + "Position Type: " + job.getPositionType() + "\n" + "Core Competency: " + job.getCoreCompetency() + "\n";
+        assertEquals(expected.charAt(0), jobString.charAt(0));
+        //assertTrue(jobString.startsWith("\n"));
+        assertEquals(expected.charAt(expected.length() - 1), jobString.charAt(jobString.length() - 1));
+        //assertTrue(jobString.endsWith("\n"));
+        assertEquals(jobString, job.toString());
     }
 
     @Test
